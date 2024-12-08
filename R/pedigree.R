@@ -379,7 +379,7 @@ setMethod("ranef", signature(object = "pedigreemm"),
                   dm <- data.matrix(ans[[nm]])
                   cn <- colnames(dm)
                   rn <- rownames(dm)
-                  dm <- as.matrix(rf[[nm]] %*% dm)
+                  dm <- as.matrix(t(rf[[nm]]) %*% dm)
                   colnames(dm) <- cn
                   rownames(dm) <- rn
                   ans[[nm]] <- data.frame(dm, check.names = FALSE)
